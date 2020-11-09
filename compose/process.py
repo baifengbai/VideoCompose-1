@@ -19,6 +19,9 @@ class Process:
 
     @property
     def run(self):
+        """
+        清洗和整理 APIView 传入的 request
+        """
         try:
             self.configures = Handler(self.request)
         except Exception as e:
@@ -29,7 +32,9 @@ class Process:
         if not c:
             self.failures.append("handle request failed with empty configures")
             return False
-
+        """
+        将 request 的图片二进制流列表转成 picture.Picture 对象存入pictures
+        """
         pictures = []
         for _ in c.pictures:
             _ = Picture(_, c.color, c.size)
@@ -38,7 +43,10 @@ class Process:
             else:
                 self.failures.extend(_.failures)
                 return False
-
+        """
+        将 request 的音频二进制流转成 audio.Audio 对象
+        根据 request 传递的参数动态设置 audio 和 video 对象
+        """
         audio = Audio(audio_stream=c.audio)
         video = Video(picture_set=pictures)
 
