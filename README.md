@@ -1,4 +1,22 @@
 # VideoCompose
+### Description
+
+```python
+"""
+@Author: WSWSCSJ
+@Description: 传入指定数量图片集和背景音乐,根据参数实现指定转场的商品静态短视频
+@Project: Demo Backend
+"""
+```
+
++ video_compose (django app)
+  + views (视图)
++ compose (服务端视频处理模块)
+  + process (合成主逻辑)
+  + handler (处理request)
+  + render (转成特效)
+  + video/audio/picture (图片和音频合成子模块)
+
 ### Install FFmpeg on Docker/Linux
 
 ```shell
@@ -51,16 +69,3 @@ ffmpeg version 4.1.4 Copyright (c) 2000-2019 the FFmpeg developers
   libswscale      5.  3.100 /  5.  3.100
   libswresample   3.  3.100 /  3.  3.100
 ```
-
-### Description
-
-```python
-"""
-@Author: WSWSCSJ
-@Description: 传入指定数量图片集和背景音乐,根据参数实现指定转场的商品静态短视频
-@Project: Demo Backend
-"""
-```
-
-+ video_compose (django app/视图层)
-+ compose (服务端视频处理模块)
