@@ -6,11 +6,12 @@
 @Author: WSWSCSJ
 @Description: 传入指定数量图片集和背景音乐,根据参数实现指定转场的商品静态短视频
 @Project: Demo Backend
+@Summary: 单个请求的情况两个框架的响应无差别,大部分时间都是消耗在服务端ffmpeg生成和合并上,多并发情况下log中可以看出Tornado响应较快
 """
 ```
 
-+ video_compose (django app)
-  + views (视图)
++ ByDjango(使用Django RESTful framework实现)
++ ByTornado(使用Tornado 单进程实现)
 + compose (服务端视频处理模块)
   + process (合成主逻辑)
   + handler (处理request)
