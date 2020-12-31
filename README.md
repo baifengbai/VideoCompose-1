@@ -1,4 +1,19 @@
 # VideoCompose
+------
+
+### 2020.12.31 Update
+
+```python
+"""
+Test
+centos使用docker开启4个容器单独在容器中编译ffmpeg,配合nginx负载均衡;
+多线程4n请求时,在单独容器中tail可以看出ffmpeg可以同时处理视频,但是处理速度下降明显,处理过程中CPU100%,内存100%;
+部分worker出现cannot allocate memory无法申请内存,返回release fail异常;
+受限于服务器计算性能,每个请求的响应时长都几乎一致,如果是单个worker,每个请求的响应时长按照前后顺序几乎等差数列;
+优化:本地使用windows+i7-CPU+多docker提高响应速度和并发量
+"""
+```
+
 ### Description
 
 ```python
@@ -10,6 +25,8 @@
 """
 ```
 
++ TestCase
+  + multi_post(多线程简单请求测试)
 + ByDjango(使用Django RESTful framework实现)
 + ByTornado(使用Tornado 单进程实现)
 + compose (服务端视频处理模块)
@@ -17,6 +34,7 @@
   + handler (处理request)
   + render (转成特效)
   + video/audio/picture (图片和音频合成子模块)
++ nginx.conf(负载均衡configure)
 
 ### Install FFmpeg on Docker/Linux
 
