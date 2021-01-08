@@ -1,6 +1,21 @@
 # VideoCompose
 ------
 
+### 2021.01.08 Update
+
+```python
+"""
+Test
+CPU:i7-9700K
+RAM:16GB
+Python:3.6.4
+FFmpeg:4.1.4
+CentOS:7
+Docker:4个ffmpeg单独编译
+Result:40次post中忽略TCP传输中Body上传和下载的时间,平均效率提升了420%
+"""
+```
+
 ### 2020.12.31 Update
 
 ```python
