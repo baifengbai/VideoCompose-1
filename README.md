@@ -1,34 +1,6 @@
 # VideoCompose
 ------
 
-### 2021.01.08 Update
-
-```python
-"""
-Test
-CPU:i7-9700K
-RAM:16GB
-Python:3.6.4
-FFmpeg:4.1.4
-CentOS:7
-Docker:4个ffmpeg单独编译
-Result:40次post中忽略TCP传输中Body上传和下载的时间,平均效率提升了420%
-"""
-```
-
-### 2020.12.31 Update
-
-```python
-"""
-Test
-centos使用docker开启4个容器单独在容器中编译ffmpeg,配合nginx负载均衡;
-多线程4n请求时,在单独容器中tail可以看出ffmpeg可以同时处理视频,但是处理速度下降明显,处理过程中CPU100%,内存100%;
-部分worker出现cannot allocate memory无法申请内存,返回release fail异常;
-受限于服务器计算性能,每个请求的响应时长都几乎一致,如果是单个worker,每个请求的响应时长按照前后顺序几乎等差数列;
-优化:本地使用windows+i7-CPU+多docker提高响应速度和并发量
-"""
-```
-
 ### Description
 
 ```python
@@ -36,7 +8,6 @@ centos使用docker开启4个容器单独在容器中编译ffmpeg,配合nginx负�
 @Author: WSWSCSJ
 @Description: 传入指定数量图片集和背景音乐,根据参数实现指定转场的商品静态短视频
 @Project: Demo Backend
-@Summary: 单个请求的情况两个框架的响应无差别,大部分时间都是消耗在服务端ffmpeg生成和合并上,多并发情况下log中可以看出Tornado响应较快
 """
 ```
 
